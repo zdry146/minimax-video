@@ -8,7 +8,7 @@ param(
 
 $ErrorActionPreference = 'SilentlyContinue'
 
-$conn = Get-NetTCPConnection -LocalPort $Port -State Listen
+$conn = Get-NetTCPConnection -LocalPort $Port -State Listen -ErrorAction SilentlyContinue
 if (-not $conn) {
     Write-Host "No process is listening on port $Port. Nothing to stop."
     exit 0

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MiniMax Hailuo 2.3 · Text-to-Video</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>MiniMax Hailuo 2.3 · Text-to-Video</h1>
+        <p class="subtitle">
+          Type a video script and let MiniMax Hailuo 2.3 turn it into a short clip.
+        </p>
+      </header>
+
+      <form id="video-form" autocomplete="off">
+        <label for="prompt">Video script / prompt</label>
+        <textarea
+          id="prompt"
+          name="prompt"
+          rows="4"
+          placeholder="e.g. A small red balloon drifting up over a quiet city at golden hour. [Static shot]"
+          required
+        ></textarea>
+
+        <div class="row">
+          <div>
+            <label for="model">Model</label>
+            <select id="model">
+              <option value="MiniMax-Hailuo-2.3" selected>MiniMax-Hailuo-2.3</option>
+              <option value="MiniMax-Hailuo-2.3-Fast">MiniMax-Hailuo-2.3-Fast</option>
+              <option value="MiniMax-Hailuo-02">MiniMax-Hailuo-02</option>
+            </select>
+          </div>
+          <div>
+            <label for="resolution">Resolution</label>
+            <select id="resolution">
+              <option value="768P" selected>768P (default)</option>
+              <option value="1080P">1080P (6s only)</option>
+              <option value="512P">512P (Hailuo-02 only)</option>
+            </select>
+          </div>
+          <div>
+            <label for="duration">Duration (s)</label>
+            <select id="duration">
+              <option value="6" selected>6</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+        </div>
+
+        <label class="checkbox">
+          <input type="checkbox" id="prompt_optimizer" checked />
+          Optimize prompt automatically
+        </label>
+
+        <button id="submit-btn" type="submit">Generate video</button>
+      </form>
+
+      <section class="output">
+        <div id="status" class="status hidden"></div>
+        <div id="error" class="error hidden"></div>
+
+        <div id="video-wrapper" class="video-wrapper hidden">
+          <video id="result-video" controls playsinline></video>
+          <a id="download-link" class="download-link hidden" download target="_blank" rel="noopener">
+            Download generated video
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist/public",
+    "rootDir": "src",
+    "lib": ["ES2020", "DOM"],
+    "module": "ES2020",
+    "moduleResolution": "Node"
+  },
+  "include": ["src/app.ts"]
+}
